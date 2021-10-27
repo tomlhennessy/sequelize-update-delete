@@ -1,0 +1,1 @@
+# practice-for-week-11-sequelize-update-delete-singular-short-practice
