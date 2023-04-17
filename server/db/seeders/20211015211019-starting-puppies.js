@@ -5,72 +5,72 @@ const { Op } = require('sequelize');
 const puppies = [
   {
     name: 'Cooper',
-    age_yrs: 1,
+    ageYrs: 1,
     breed: 'Miniature Schnauzer',
-    weight_lbs: 18,
+    weightLbs: 18,
     microchipped: true
   },
   {
     name: 'Indie',
-    age_yrs: 0.5,
+    ageYrs: 0.5,
     breed: 'Yorkshire Terrier',
-    weight_lbs: 13,
+    weightLbs: 13,
     microchipped: true
   },
   {
     name: 'Kota',
-    age_yrs: 0.7,
+    ageYrs: 0.7,
     breed: 'Australian Shepherd',
-    weight_lbs: 26,
+    weightLbs: 26,
     microchipped: false
   },
   {
     name: 'Zoe',
-    age_yrs: 0.8,
+    ageYrs: 0.8,
     breed: 'Korean Jindo',
-    weight_lbs: 32,
+    weightLbs: 32,
     microchipped: true
   },
   {
     name: 'Charley',
-    age_yrs: 1.5,
+    ageYrs: 1.5,
     breed: 'Basset Hound',
-    weight_lbs: 25,
+    weightLbs: 25,
     microchipped: false
   },
   {
     name: 'Ladybird',
-    age_yrs: 0.6,
+    ageYrs: 0.6,
     breed: 'Labradoodle',
-    weight_lbs: 20,
+    weightLbs: 20,
     microchipped: true
   },
   {
     name: 'Callie',
-    age_yrs: 0.9,
+    ageYrs: 0.9,
     breed: 'Corgi',
-    weight_lbs: 16,
+    weightLbs: 16,
     microchipped: false
   },
   {
     name: 'Jaxson',
-    age_yrs: 0.4,
+    ageYrs: 0.4,
     breed: 'Beagle',
-    weight_lbs: 19,
+    weightLbs: 19,
     microchipped: true
   },
   {
     name: 'Leinni',
-    age_yrs: 1,
+    ageYrs: 1,
     breed: 'Miniature Schnauzer',
-    weight_lbs: 25,
+    weightLbs: 25,
     microchipped: true
   },
   {
     name: 'Max',
-    age_yrs: 1.6,
+    ageYrs: 1.6,
     breed: 'German Shepherd',
-    weight_lbs: 65,
+    weightLbs: 65,
     microchipped: false
   }
 ]

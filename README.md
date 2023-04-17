@@ -16,18 +16,20 @@ sh setup-commands.sh
 
 View the contents of the script to see the commands that are executed. View the results in the terminal to confirm that setup was successful in creating the following `Puppies` table in your database:
 
-| `id` | `name`   | `age_yrs` | `breed`             | `weight_lbs` | `microchipped` |
-| ---- | -------- | --------- | ------------------- | ------------ | -------------- |
-| 1    | Cooper   | 1         | Miniature Schnauzer | 18           | true           |
-| 2    | Indie    | 0.5       | Yorkshire Terrier   | 13           | true           |
-| 3    | Kota     | 0.7       | Australian Shepherd | 26           | false          |
-| 4    | Zoe      | 0.8       | Korean Jindo        | 32           | true           |
-| 5    | Charley  | 1.5       | Basset Hound        | 25           | false          |
-| 6    | Ladybird | 0.6       | Labradoodle         | 20           | true           |
-| 7    | Callie   | 0.9       | Corgi               | 16           | false          |
-| 8    | Jaxson   | 0.4       | Beagle              | 19           | true           |
-| 9    | Leinni   | 1         | Miniature Schnauzer | 25           | true           |
-| 10   | Max      | 1.6       | German Shepherd     | 65           | false          |
+| `id` | `name`   | `ageYrs` | `breed`             | `weightLbs` | `microchipped` |
+| ---- | -------- | -------- | ------------------- | ----------- | -------------- |
+| 1    | Cooper   | 1        | Miniature Schnauzer | 18          | true           |
+| 2    | Indie    | 0.5      | Yorkshire Terrier   | 13          | true           |
+| 3    | Kota     | 0.7      | Australian Shepherd | 26          | false          |
+| 4    | Zoe      | 0.8      | Korean Jindo        | 32          | true           |
+| 5    | Charley  | 1.5      | Basset Hound        | 25          | false          |
+| 6    | Ladybird | 0.6      | Labradoodle         | 20          | true           |
+| 7    | Callie   | 0.9      | Corgi               | 16          | false          |
+| 8    | Jaxson   | 0.4      | Beagle              | 19          | true           |
+| 9    | Leinni   | 1        | Miniature Schnauzer | 25          | true           |
+| 10   | Max      | 1.6      | German Shepherd     | 65          | false          |
+
+`cd` into the __server__ folder.
 
 Start the development server with `npm run dev` and navigate to `/puppies` to
 ensure that application has been initialized correctly. You should see all ten
@@ -57,7 +59,7 @@ To update a record, you will need to:
 Using the `puppyId` route parameter, capture a reference to a specific instance
 of the `Puppy` model.
 
-The endpoint should only permit changes to the `age_yrs`, `weight_lbs`, and
+The endpoint should only permit changes to the `ageYrs`, `weightLbs`, and
 `microchipped` attributes. If they exist on the body of the request, assign the
 instance's attributes to the new values. Each of these keys are optional, and no
 other key on the request should impact your database.
@@ -76,8 +78,8 @@ that you wish to update:
 
 ```json
 {
-  "age_yrs": 1.5,
-  "weight_lbs": 26
+  "ageYrs": 1.5,
+  "weightLbs": 26
 }
 ```
 
@@ -90,9 +92,9 @@ following:
     "puppy": {
         "id": 7,
         "name": "Callie",
-        "age_yrs": 1.5,
+        "ageYrs": 1.5,
         "breed": "Corgi",
-        "weight_lbs": 26,
+        "weightLbs": 26,
         "microchipped": false,
         "createdAt": "2021-10-20T17:42:17.000Z",
         "updatedAt": "2021-10-20T19:43:09.307Z"
@@ -102,13 +104,13 @@ following:
 
 Try adding in attributes to your request that have not been explicitly
 extracted from the body of the request like `name` or `id`. You should
-see that the permitted attributes of `age_years` and `weight_lbs` are
+see that the permitted attributes of `ageYrs` and `weightLbs` are
 updated while the rest do not affect your database:
 
 ```json
 {
-  "age_yrs": 1.6,
-  "weight_lbs": 28,
+  "ageYrs": 1.6,
+  "weightLbs": 28,
   "name": "Princess",
   "id": 10
 }
@@ -122,9 +124,9 @@ following:
     "puppy": {
         "id": 7,
         "name": "Callie",
-        "age_yrs": 1.6,
+        "ageYrs": 1.6,
         "breed": "Corgi",
-        "weight_lbs": 28,
+        "weightLbs": 28,
         "microchipped": false,
         "createdAt": "2021-10-20T17:42:17.000Z",
         "updatedAt": "2021-10-20T19:45:14.607Z"
@@ -132,10 +134,10 @@ following:
 }
 ```
 
-Remember to test your code by running `npm test`. You can run one test file at
-a time by running:
+Remember to test your code by running `npm test` in the __server__ directory.
+You can run one test file at a time by running:
 
-* `npm test test/01-test-update.js`
+* `npm test test/01-test-update.js` in the __server__ directory
 
 ## Step 2: Delete a puppy by id
 
@@ -163,11 +165,11 @@ through your index route of `/puppies` or through `sqlite3` directly.
 > Remember that you can unseed and reseed your database if you lose or alter any
 > records unintentionally.
 
-Remember to test your code by running `npm test`. You can run one test file at
-a time by running:
+Remember to test your code by running `npm test` in the __server__ directory.
+You can run one test file at a time by running:
 
-* `npm test test/01-test-update.js`
-* `npm test test/02-test-delete.js`
+* `npm test test/01-test-update.js` in the __server__ directory
+* `npm test test/02-test-delete.js` in the __server__ directory
 
 ## Congratulations!
 
@@ -176,10 +178,8 @@ database.
 
 ## Submission
 
-Submit your work. Make sure to delete the `node_modules` folders in
-__BOTH root and server directories__!!
+Submit your work.
 
-1. Delete the `node_modules` folder in the root directory
-2. Delete the `node_modules` folder in the __server__ directory
-3. Zip up the project folder
-4. Submit the zip file
+1. Delete the `node_modules` folder in the __server__ directory
+2. Zip up the project folder
+3. Submit the zip file

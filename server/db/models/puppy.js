@@ -15,9 +15,9 @@ module.exports = (sequelize, DataTypes) => {
   };
   Puppy.init({
     name: DataTypes.STRING,
-    age_yrs: DataTypes.FLOAT,
+    ageYrs: DataTypes.FLOAT,
     breed: DataTypes.STRING,
-    weight_lbs: DataTypes.INTEGER,
+    weightLbs: DataTypes.INTEGER,
     microchipped: DataTypes.BOOLEAN
   }, {
     sequelize,
