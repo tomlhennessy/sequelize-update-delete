@@ -21,3 +21,4 @@ sqlite3 db/dev.db ".schema"
 
 echo "----- Tables Have Data? -----"
 sqlite3 db/dev.db "SELECT * FROM Puppies;"
+
