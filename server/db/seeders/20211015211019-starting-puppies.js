@@ -2,6 +2,8 @@
 
 const { Op } = require('sequelize');
 
+const { Puppy } = require('../models');
+
 const puppies = [
   {
     name: 'Cooper',
@@ -87,7 +89,17 @@ module.exports = {
      * }], {});
     */
 
-    await queryInterface.bulkInsert('Puppies', puppies)
+    try {
+
+      await Puppy.bulkCreate(puppies, { validate: true });
+
+    } catch (err) {
+
+      console.error(err);
+      throw err;
+
+    }
+
   },
 
   down: async (queryInterface, Sequelize) => {
