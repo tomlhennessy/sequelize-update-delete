@@ -20,7 +20,32 @@ app.get('/puppies', async (req, res, next) => {
 
 // STEP 1: Update a puppy by id
 app.put('/puppies/:puppyId', async (req, res, next) => {
-    // Your code here
+    try {
+        const { puppyId } = req.params; // extract ID from url
+        const { ageYrs, weightLbs, microchipped } = req.body; // extract attributes to update
+
+        // find the puppy instance
+        const puppy = await Puppy.findByPk(puppyId);
+
+        if (!puppy) {
+            return res.status(404).json({ message: 'Puppy not found' });
+        }
+
+        if (ageYrs !== undefined) puppy.ageYrs = ageYrs;
+        if (weightLbs !== undefined) puppy.weightLbs = weightLbs;
+        if (microchipped !== undefined) puppy.microchipped = microchipped;
+
+        // save the updated instance to the database
+        await puppy.save();
+
+        // send response with updated record
+        res.json({
+            message: 'Successfully updated puppy with id ${puppyId}',
+            puppy,
+        })
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
 })
 
 
